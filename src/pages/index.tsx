@@ -1,28 +1,27 @@
-import Head from 'next/head';
-import { useState } from 'react';
+import Head from "next/head";
+import { useState } from "react";
 
 export default function Home() {
-  const [data,setData] = useState([]);
-  const [loading,setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e:React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.target);
     const dataObj = Object.fromEntries(data);
     setLoading(true);
 
-    const response = await fetch('/api/getStory',{
-      method: 'POST',
-      body: JSON.stringify({prompt:dataObj.prompt}),
-      headers:{
-        'Content-Type': 'application/json'
+    const response = await fetch("/api/getStory", {
+      method: "POST",
+      body: JSON.stringify({ prompt: dataObj.prompt }),
+      headers: {
+        "Content-Type": "application/json",
       },
     });
     const result = await response.json();
     setData(result);
     setLoading(false);
-
-  }
+  };
 
   return (
     <div className="">
@@ -33,22 +32,31 @@ export default function Home() {
       </Head>
 
       <main className="">
-        <h1 className="text-center text-3xl mt-[5rem]">
-          Get Random Short Story 🚀
+        <h1 className="text-center text-4xl mt-[5rem]">
+          Get Random Short Story 📖
         </h1>
 
         <form onSubmit={handleSubmit} className="text-center my-5">
-          <input type="text" className='text-center' name='prompt' required placeholder='Alien Invasion on Earth' />
+          <input
+            type="text"
+            className="text-center text-2xl py-4 px-8 mt-10 mb-5"
+            name="prompt"
+            required
+            placeholder="Alien Invasion on Earth"
+          />
           <br />
-          <button type='submit' className='my-5 bg-white text-black py-3 px-5 text-xl'>
-          Submit  
+          <button
+            type="submit"
+            className="my-5 bg-white text-black py-3 px-7 text-xl rounded-full font-bold border-2 border-white hover:bg-black hover:text-white"
+          >
+            Submit
           </button>
         </form>
-        {loading && <p className='text-center my-5 10'>Generating a story...</p>}
-        <div className='text-center my-5 mx-[10rem]'>
-          {data}
-        </div>
+        {loading && (
+          <p className="text-center my-5 10">Generating a story...</p>
+        )}
+        <div className="text-center mb-5 mt-[4rem] mx-[10rem]">{data}</div>
       </main>
     </div>
-  )
+  );
 }
