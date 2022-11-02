@@ -66,7 +66,7 @@ export default function Home() {
         {loading && (
           <p className="text-center my-5 10">Generating a story...</p>
         )}
-        <div className="text-center mb-5 mt-[2rem] md:mt-[4rem] mx-[1rem] md:mx-[10rem] ">{data}</div>
+        <div className="text-center mb-5 mt-[2rem] md:mt-[4rem] mx-[1rem] md:mx-[20rem] ">{data}</div>
     </div> 
   );
 }
