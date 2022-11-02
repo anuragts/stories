@@ -32,7 +32,7 @@ export default function Home() {
       </Head>
 
         <h1 className="text-center text-2xl md:text-4xl mt-[5rem]">
-          Get Random Short Story 📖
+          Get Short Story 📖
         </h1>
 
         <form onSubmit={handleSubmit} className="my-5 text-center">
