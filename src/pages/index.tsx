@@ -1,6 +1,29 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { useState } from 'react';
 
 export default function Home() {
+  const [data,setData] = useState([]);
+  const [loading,setLoading] = useState(false);
+
+  const handleSubmit = async (e:React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const dataObj = Object.fromEntries(data);
+    setLoading(true);
+
+    const response = await fetch('/api/getStory',{
+      method: 'POST',
+      body: JSON.stringify({prompt:dataObj.prompt}),
+      headers:{
+        'Content-Type': 'application/json'
+      },
+    });
+    const result = await response.json();
+    setData(result);
+    setLoading(false);
+
+  }
+
   return (
     <div className="">
       <Head>
@@ -10,9 +33,21 @@ export default function Home() {
       </Head>
 
       <main className="">
-        <h1 className="text-center text-5xl mt-[5rem]">
-          Hello World 🚀
+        <h1 className="text-center text-3xl mt-[5rem]">
+          Get Random Story 🚀
         </h1>
+
+        <form onSubmit={handleSubmit} className="text-center my-5">
+          <input type="text " name='prompt' required placeholder='Enter a topic' />
+          <br />
+          <button type='submit' className='my-5 bg-white text-black py-3 px-5 text-xl'>
+          Submit  
+          </button>
+        </form>
+        {loading && <p>Generating a story...</p>}
+        <div className='text-center my-5'>
+          {data}
+        </div>
       </main>
     </div>
   )
