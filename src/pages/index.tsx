@@ -31,15 +31,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="">
-        <h1 className="text-center text-4xl mt-[5rem]">
+        <h1 className="text-center text-2xl md:text-4xl mt-[5rem]">
           Get Random Short Story 📖
         </h1>
 
-        <form onSubmit={handleSubmit} className="text-center my-5">
+        <form onSubmit={handleSubmit} className="my-5 text-center">
           <input
             type="text"
-            className="text-center text-2xl py-4 px-8 mt-10 mb-5"
+            className="text-center text-sm md:text-2xl py-4 px-2 md:px-8 mt-10 mb-5 mx-2 md:mx-5"
             name="prompt"
             required
             placeholder="Alien Invasion on Earth"
@@ -47,7 +46,7 @@ export default function Home() {
           <br />
           <button
             type="submit"
-            className="my-5 bg-white text-black py-3 px-7 text-xl rounded-full font-bold border-2 border-white hover:bg-black hover:text-white"
+            className="my-5 bg-white text-black py-3 px-7 sm:text-xl rounded-full font-bold border-2 border-white hover:bg-black hover:text-white text-sm"
           >
             Submit
           </button>
@@ -55,8 +54,7 @@ export default function Home() {
         {loading && (
           <p className="text-center my-5 10">Generating a story...</p>
         )}
-        <div className="text-center mb-5 mt-[4rem] mx-[10rem]">{data}</div>
-      </main>
-    </div>
+        <div className="text-center mb-5 mt-[2rem] md:mt-[4rem] mx-[1rem] md:mx-[10rem] ">{data}</div>
+    </div> 
   );
 }
