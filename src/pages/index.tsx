@@ -34,18 +34,18 @@ export default function Home() {
 
       <main className="">
         <h1 className="text-center text-3xl mt-[5rem]">
-          Get Random Story 🚀
+          Get Random Short Story 🚀
         </h1>
 
         <form onSubmit={handleSubmit} className="text-center my-5">
-          <input type="text " name='prompt' required placeholder='Enter a topic' />
+          <input type="text" className='text-center' name='prompt' required placeholder='Alien Invasion on Earth' />
           <br />
           <button type='submit' className='my-5 bg-white text-black py-3 px-5 text-xl'>
           Submit  
           </button>
         </form>
-        {loading && <p>Generating a story...</p>}
-        <div className='text-center my-5'>
+        {loading && <p className='text-center my-5 10'>Generating a story...</p>}
+        <div className='text-center my-5 mx-[10rem]'>
           {data}
         </div>
       </main>
