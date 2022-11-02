@@ -50,6 +50,7 @@ export default function Home() {
             <option value="Romance">Romance</option>
             <option value="Fairy Tale">Fairy Tale</option>  
             <option value="Fantasy">Fantasy</option>
+            <option value="Sad">Sad</option>
             <option value="Motivation">Motivation</option>
             <option value="Comedy">Comedy</option>
             <option value="Fiction">Fiction</option>
