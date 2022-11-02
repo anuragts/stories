@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -32,7 +33,9 @@ export default function Home() {
       </Head>
 
         <h1 className="text-center text-2xl md:text-4xl mt-[5rem]">
+          <Link href="/">
           Get Short Story 📖
+          </Link>
         </h1>
 
         <form onSubmit={handleSubmit} className="my-5 text-center">
