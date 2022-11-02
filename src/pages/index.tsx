@@ -48,6 +48,7 @@ export default function Home() {
           />
           <select name="genre" id="genre" className="text-xl py-2 px-2 text-center">
             <option value="Horror">Horror</option>
+            <option value="Action">Action</option>
             <option value="Adventurous">Adventurous</option>
             <option value="drama">Drama</option>
             <option value="Romance">Romance</option>
