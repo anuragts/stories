@@ -13,7 +13,7 @@ export default function Home() {
 
     const response = await fetch("/api/getStory", {
       method: "POST",
-      body: JSON.stringify({ prompt: dataObj.prompt }),
+      body: JSON.stringify({ prompt: dataObj.prompt,genre:dataObj.genre }), 
       headers: {
         "Content-Type": "application/json",
       },
@@ -43,6 +43,14 @@ export default function Home() {
             required
             placeholder="Alien Invasion on Earth"
           />
+          <select name="genre" id="genre" className="text-xl py-2 px-2 text-center">
+            <option value="drama">Drama</option>
+            <option value="Fairy Tale">Fairy Tale</option>
+            <option value="Horror">Horror</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Fiction">Fiction</option>
+          </select>
           <br />
           <button
             type="submit"
