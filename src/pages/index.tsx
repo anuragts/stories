@@ -44,10 +44,12 @@ export default function Home() {
             placeholder="Alien Invasion on Earth"
           />
           <select name="genre" id="genre" className="text-xl py-2 px-2 text-center">
+            <option value="Adventurous">Adventurous</option>
             <option value="drama">Drama</option>
-            <option value="Fairy Tale">Fairy Tale</option>
             <option value="Horror">Horror</option>
+            <option value="Fairy Tale">Fairy Tale</option>
             <option value="Fantasy">Fantasy</option>
+            <option value="Motivation">Motivation</option>
             <option value="Comedy">Comedy</option>
             <option value="Fiction">Fiction</option>
           </select>

@@ -6,7 +6,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const genre :string = req.body.genre;
   const { data } = await openAi.createCompletion({
     model: "text-davinci-002",
-    prompt: `Create a ${genre} story on the topic of ${prompt}`,
+    prompt: `Create a complete random ${genre} story on the topic of ${prompt} \n\n each story should be unique \n\n each story should be at least 100 words long. \n\n   Story: `,
     temperature: 0,
     max_tokens: 256,
     top_p: 1,
