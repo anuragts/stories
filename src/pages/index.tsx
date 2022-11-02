@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Home() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,9 +20,14 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     });
-    const result = await response.json();
-    setData(result);
-    setLoading(false);
+    const result = await response.json(); 
+    if (result.error) {
+      setLoading(false);
+      setError(result.error);
+    } else {
+      setLoading(false);
+      setData(result);
+    }
   };
 
   return (
@@ -39,7 +45,7 @@ export default function Home() {
           <button title="currently in beta , responses may vary" className="border-2 text-xl rounded-full mx-5 px-3 py-1 text-[#00ffc8] border-[#00ffc8] beta">beta
           </button>
         </h1>
-
+     
         <form onSubmit={handleSubmit} className="my-5 text-center">
           <input
             type="text"
@@ -72,6 +78,12 @@ export default function Home() {
         {loading && (
           <p className="text-center my-5 10">Generating a story...</p>
         )}
+           {error && (
+          <div className="text-center text-red-500 text-xl">
+            <p>{error}</p>
+          </div>
+        )}
+
         <div className="text-center mb-5 mt-[2rem] md:mt-[4rem] mx-[1rem] md:mx-[20rem] ">{data}</div>
     </div> 
   );
