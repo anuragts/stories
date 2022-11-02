@@ -34,8 +34,10 @@ export default function Home() {
 
         <h1 className="text-center text-2xl md:text-4xl mt-[5rem]">
           <Link href="/">
-          Get Short Story 📖
-          </Link>
+          Get Short Story 📖 
+          </Link> 
+          <button title="currently in beta , responses may vary" className="border-2 text-xl rounded-full mx-5 px-3 py-1 text-[#00ffc8] border-[#00ffc8] beta">beta
+          </button>
         </h1>
 
         <form onSubmit={handleSubmit} className="my-5 text-center">
