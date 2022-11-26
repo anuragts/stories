@@ -15,7 +15,7 @@ export default function Home() {
 
     const response = await fetch("/api/getStory", {
       method: "POST",
-      body: JSON.stringify({ prompt: dataObj.prompt,genre:dataObj.genre }), 
+      body: JSON.stringify({ prompt: dataObj.prompt,genre:dataObj.genre,words:dataObj.words}), 
       headers: {
         "Content-Type": "application/json",
       },
@@ -54,7 +54,7 @@ export default function Home() {
             required
             placeholder="Alien Invasion on Earth"
           />
-          <select name="genre" id="genre" className="text-xl py-2 px-2 text-center">
+          <select name="genre" id="genre" className="text-xl py-2 px-2 text-center mx-5">
             <option value="drama">Drama</option>
             <option value="Horror">Horror</option>
             <option value="Action">Action</option>
@@ -67,6 +67,15 @@ export default function Home() {
             <option value="Comedy">Comedy</option>
             <option value="Fiction">Fiction</option>
           </select>
+          {/* <select name="words" id="words" className="text-xl py-2 px-2 text-center my-5">
+          <option value="100">100 words</option>
+            <option value="150">150 words</option>
+            <option value="300">300 words</option>
+            <option value="500">500 words</option>
+            <option value="800">800 words</option>
+            <option value="1000">1000 words</option>
+       
+          </select> */}
           <br />
           <button
             type="submit"
